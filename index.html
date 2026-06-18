@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Soroush Salari — AI & Data Scientist</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#080B12;--bg2:#0E1320;--bg3:#141929;
+  --purple:#7C5CFC;--cyan:#00D4FF;--pink:#FF4D8D;--green:#00D48A;--amber:#F59E0B;
+  --text:#F0F2FF;--muted:#8892A4;--border:#1E2840;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 3rem;display:flex;justify-content:space-between;align-items:center;background:rgba(8,11,18,0.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.logo{font-size:1.3rem;font-weight:900;background:linear-gradient(90deg,var(--purple),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:-.02em}
+.nav-links{display:flex;gap:1.5rem;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.82rem;letter-spacing:.04em;transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.nav-btn{padding:.42rem 1.1rem;border:1px solid var(--purple);color:var(--purple);border-radius:6px;text-decoration:none;font-size:.82rem;font-weight:600;transition:all .2s}
+.nav-btn:hover{background:var(--purple);color:#fff}
+
+/* HERO */
+#hero{min-height:100vh;display:flex;align-items:center;padding:0 3rem;position:relative;overflow:hidden}
+.hero-inner{display:grid;grid-template-columns:1fr 400px;gap:4rem;align-items:center;max-width:1200px;margin:0 auto;width:100%}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(124,92,252,.12);border:1px solid rgba(124,92,252,.3);color:var(--purple);padding:.35rem .9rem;border-radius:100px;font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1.4rem}
+.hero-badge span{width:7px;height:7px;border-radius:50%;background:#00D48A;animation:blink 2s infinite}
+h1.name{font-size:4rem;font-weight:900;line-height:1.0;letter-spacing:-.03em;margin-bottom:.6rem}
+h1.name .grad{background:linear-gradient(135deg,var(--purple),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.role-line{font-size:1.1rem;color:var(--cyan);font-weight:600;margin-bottom:1.2rem;letter-spacing:.02em}
+.hero-desc{color:var(--muted);font-size:.95rem;line-height:1.75;margin-bottom:2rem;max-width:520px}
+.cta-row{display:flex;gap:.8rem;flex-wrap:wrap}
+.btn-p{padding:.7rem 1.8rem;background:linear-gradient(135deg,var(--purple),#5E3BE8);color:#fff;border:none;border-radius:8px;font-size:.9rem;font-weight:600;cursor:pointer;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(124,92,252,.4)}
+.btn-o{padding:.7rem 1.8rem;background:transparent;color:var(--text);border:1px solid var(--border);border-radius:8px;font-size:.9rem;font-weight:600;text-decoration:none;transition:all .2s}
+.btn-o:hover{border-color:var(--cyan);color:var(--cyan)}
+.hero-stats{display:flex;gap:2rem;margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--border)}
+.stat-v{font-size:1.9rem;font-weight:900;background:linear-gradient(135deg,var(--purple),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-l{font-size:.72rem;color:var(--muted);margin-top:.15rem;line-height:1.3}
+.profile-card{background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:1.8rem;text-align:center}
+.avatar{width:90px;height:90px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--cyan));display:flex;align-items:center;justify-content:center;font-size:2.2rem;margin:0 auto .9rem;border:3px solid var(--bg);overflow:hidden}
+.avatar img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.pc-name{font-size:1.05rem;font-weight:800;margin-bottom:.2rem}
+.pc-role{font-size:.78rem;color:var(--muted);margin-bottom:1.1rem}
+.pc-div{height:1px;background:var(--border);margin-bottom:1.1rem}
+.pc-row{display:flex;align-items:flex-start;gap:.7rem;font-size:.78rem;color:var(--muted);margin-bottom:.65rem;text-align:left}
+.pc-row a{color:var(--cyan);text-decoration:none;font-size:.75rem;word-break:break-all}
+.pc-row a:hover{text-decoration:underline}
+.pc-icon{width:26px;height:26px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0;margin-top:.05rem}
+.pill-row{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.9rem}
+.pill{font-size:.68rem;padding:.22rem .6rem;border-radius:100px;font-weight:600}
+.pill-p{background:rgba(124,92,252,.12);color:var(--purple);border:1px solid rgba(124,92,252,.25)}
+.pill-c{background:rgba(0,212,255,.08);color:var(--cyan);border:1px solid rgba(0,212,255,.2)}
+.pill-g{background:rgba(0,212,138,.08);color:var(--green);border:1px solid rgba(0,212,138,.2)}
+.bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(30,40,64,.35) 1px,transparent 1px),linear-gradient(90deg,rgba(30,40,64,.35) 1px,transparent 1px);background-size:56px 56px;pointer-events:none}
+.bg-glow{position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(124,92,252,.07) 0%,transparent 70%);top:50%;left:25%;transform:translate(-50%,-50%);pointer-events:none}
+.fu{animation:fadeUp .7s ease both}
+.d1{animation-delay:.1s}.d2{animation-delay:.2s}.d3{animation-delay:.3s}.d4{animation-delay:.4s}
+
+/* LAYOUT */
+.wrap{max-width:1200px;margin:0 auto;padding:5rem 3rem}
+.section-tag{font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--purple);margin-bottom:.7rem}
+.section-title{font-size:2.4rem;font-weight:900;letter-spacing:-.025em;margin-bottom:1rem;line-height:1.1}
+.section-desc{color:var(--muted);font-size:.95rem;line-height:1.7;max-width:540px}
+.sep{height:1px;background:var(--border)}
+
+/* FEATURED PROJECT */
+#featured{background:var(--bg2)}
+.feat-inner{max-width:1200px;margin:0 auto;padding:5rem 3rem}
+.feat-header{display:grid;grid-template-columns:1fr auto;align-items:flex-start;gap:2rem;margin-bottom:2.5rem}
+.feat-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);color:var(--amber);padding:.3rem .85rem;border-radius:100px;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.8rem}
+.feat-badge span{width:6px;height:6px;border-radius:50%;background:var(--amber)}
+.feat-title{font-size:1.7rem;font-weight:900;line-height:1.2;margin-bottom:.8rem}
+.feat-meta{font-size:.8rem;color:var(--muted);margin-bottom:1.2rem}
+.feat-abstract{background:var(--bg3);border:1px solid var(--border);border-left:3px solid var(--purple);border-radius:0 12px 12px 0;padding:1.2rem 1.4rem;font-size:.83rem;color:var(--muted);line-height:1.75;margin-bottom:1.5rem}
+.feat-abstract strong{color:var(--text)}
+.feat-highlights{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;margin-bottom:2rem}
+.fh-card{background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:1rem;text-align:center}
+.fh-val{font-size:1.5rem;font-weight:900;background:linear-gradient(135deg,var(--purple),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.fh-label{font-size:.72rem;color:var(--muted);margin-top:.2rem}
+/* figures */
+.figures-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:1.5rem}
+.fig-card{background:var(--bg3);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+.fig-img{height:180px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#0a0e1a;border-bottom:1px solid var(--border);position:relative}
+.fig-img img{width:100%;height:100%;object-fit:cover;opacity:.9}
+.fig-img .fig-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;color:var(--muted);font-size:.75rem;height:100%;width:100%;background:repeating-linear-gradient(45deg,rgba(30,40,64,.3),rgba(30,40,64,.3) 10px,transparent 10px,transparent 20px)}
+.fig-caption{padding:.9rem 1rem}
+.fig-num{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--purple);margin-bottom:.3rem}
+.fig-desc{font-size:.78rem;color:var(--muted);line-height:1.5}
+.feat-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem}
+
+/* EDUCATION */
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:2.5rem}
+.edu-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:1.5rem;transition:border-color .2s}
+.edu-card:hover{border-color:rgba(124,92,252,.35)}
+.edu-badge{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--purple);margin-bottom:.6rem}
+.edu-card h3{font-size:.97rem;font-weight:800;margin-bottom:.3rem;line-height:1.3}
+.edu-card .uni{font-size:.83rem;color:var(--cyan);margin-bottom:.3rem}
+.edu-card .year{font-size:.76rem;color:var(--muted)}
+.honors-list{margin-top:2rem;display:grid;gap:.75rem}
+.honor-item{display:flex;align-items:flex-start;gap:.8rem;background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:.9rem 1.2rem}
+.honor-dot{width:7px;height:7px;border-radius:50%;background:var(--purple);margin-top:.35rem;flex-shrink:0}
+.honor-item p{font-size:.83rem;color:var(--muted);line-height:1.5}
+.honor-item strong{color:var(--text)}
+
+/* SKILLS */
+.skills-wrap{background:var(--bg2)}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:1.2rem;margin-top:2.5rem}
+.sk-card{background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:1.5rem;transition:border-color .2s,transform .2s}
+.sk-card:hover{border-color:rgba(124,92,252,.35);transform:translateY(-3px)}
+.sk-icon{font-size:1.7rem;margin-bottom:.9rem}
+.sk-card h3{font-size:.95rem;font-weight:700;margin-bottom:.4rem}
+.sk-card p{font-size:.8rem;color:var(--muted);line-height:1.5;margin-bottom:.85rem}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem}
+.tag{font-size:.67rem;padding:.2rem .58rem;border-radius:100px;font-weight:600}
+.tg-p{background:rgba(124,92,252,.1);color:var(--purple);border:1px solid rgba(124,92,252,.2)}
+.tg-c{background:rgba(0,212,255,.07);color:var(--cyan);border:1px solid rgba(0,212,255,.18)}
+.tg-g{background:rgba(0,212,138,.07);color:var(--green);border:1px solid rgba(0,212,138,.18)}
+.tg-pk{background:rgba(255,77,141,.07);color:var(--pink);border:1px solid rgba(255,77,141,.18)}
+
+/* PROJECTS */
+.filter-bar{display:flex;gap:.5rem;margin-top:2.5rem;margin-bottom:2rem;flex-wrap:wrap}
+.filter-btn{padding:.4rem 1rem;border-radius:100px;border:1px solid var(--border);background:transparent;color:var(--muted);font-size:.78rem;font-weight:600;cursor:pointer;transition:all .2s}
+.filter-btn:hover{border-color:var(--purple);color:var(--purple)}
+.filter-btn.active{background:var(--purple);color:#fff;border-color:var(--purple)}
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.2rem}
+.proj-card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:border-color .2s,transform .2s;display:flex;flex-direction:column}
+.proj-card:hover{border-color:rgba(0,212,255,.3);transform:translateY(-4px)}
+.proj-thumb{height:148px;display:flex;align-items:center;justify-content:center;font-size:2.8rem;position:relative;overflow:hidden;flex-shrink:0;background:var(--bg3);border-bottom:1px solid var(--border)}
+.proj-body{padding:1.2rem;flex:1;display:flex;flex-direction:column}
+.proj-cat-badge{display:inline-block;font-size:.63rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.18rem .55rem;border-radius:100px;margin-bottom:.55rem}
+.cat-dl{background:rgba(124,92,252,.12);color:var(--purple);border:1px solid rgba(124,92,252,.25)}
+.cat-ml{background:rgba(0,212,255,.08);color:var(--cyan);border:1px solid rgba(0,212,255,.2)}
+.cat-da{background:rgba(0,212,138,.08);color:var(--green);border:1px solid rgba(0,212,138,.2)}
+.cat-dm{background:rgba(255,77,141,.08);color:var(--pink);border:1px solid rgba(255,77,141,.2)}
+.proj-card h3{font-size:.92rem;font-weight:800;margin-bottom:.45rem;line-height:1.3}
+.proj-card p{font-size:.8rem;color:var(--muted);line-height:1.6;flex:1;margin-bottom:.8rem}
+.proj-footer{display:flex;align-items:center;justify-content:space-between;margin-top:auto;flex-wrap:wrap;gap:.4rem}
+.hidden{display:none!important}
+
+/* PUBLICATIONS */
+.pub-list{margin-top:2.5rem;display:grid;gap:1rem}
+.pub-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:1.3rem 1.5rem;transition:border-color .2s;display:flex;gap:1.1rem;align-items:flex-start}
+.pub-card:hover{border-color:rgba(124,92,252,.3)}
+.pub-num{font-size:1.6rem;font-weight:900;color:var(--border);line-height:1;flex-shrink:0;padding-top:.1rem;min-width:2rem}
+.pub-title{font-size:.88rem;font-weight:700;line-height:1.4;margin-bottom:.4rem;color:var(--text)}
+.pub-authors{font-size:.76rem;color:var(--muted);line-height:1.5;margin-bottom:.35rem}
+.pub-venue{font-size:.73rem;color:var(--cyan);font-weight:600}
+.pub-status{font-size:.65rem;padding:.18rem .5rem;border-radius:100px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-left:.4rem;vertical-align:middle}
+.status-pub{background:rgba(0,212,138,.1);color:var(--green);border:1px solid rgba(0,212,138,.25)}
+.status-prep{background:rgba(255,77,141,.08);color:var(--pink);border:1px solid rgba(255,77,141,.2)}
+.status-submit{background:rgba(245,158,11,.1);color:var(--amber);border:1px solid rgba(245,158,11,.25)}
+
+/* TEACHING */
+.teach-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.1rem;margin-top:2.5rem}
+.teach-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:1.3rem;transition:border-color .2s}
+.teach-card:hover{border-color:rgba(0,212,138,.3)}
+.teach-icon{font-size:1.4rem;margin-bottom:.7rem}
+.teach-card h3{font-size:.93rem;font-weight:700;margin-bottom:.3rem}
+.teach-card p{font-size:.8rem;color:var(--muted);line-height:1.5}
+.teach-date{font-size:.7rem;color:var(--green);font-weight:600;margin-top:.45rem}
+
+/* CONTACT */
+.contact-box{background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:3rem;max-width:700px;margin:2.5rem auto 0;position:relative;overflow:hidden}
+.contact-box::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(124,92,252,.05),rgba(0,212,255,.03));pointer-events:none}
+.contact-box h2{font-size:1.9rem;font-weight:900;margin-bottom:.7rem}
+.contact-box p{color:var(--muted);line-height:1.7;margin-bottom:1.8rem;font-size:.92rem}
+.contact-links{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;max-width:500px;margin:0 auto 1.5rem}
+.c-link{display:flex;align-items:center;gap:.65rem;background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:.75rem 1rem;text-decoration:none;color:var(--text);font-size:.82rem;transition:border-color .2s}
+.c-link:hover{border-color:var(--purple)}
+.c-icon{font-size:1.05rem;flex-shrink:0}
+.c-text{display:flex;flex-direction:column}
+.c-label{font-size:.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-weight:600}
+.c-val{font-size:.76rem;color:var(--cyan);word-break:break-all}
+
+footer{text-align:center;padding:1.6rem 3rem;border-top:1px solid var(--border);color:var(--muted);font-size:.78rem}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}
+.reveal.vis{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">SS.ai</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#featured">Spotlight</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#contact-section">Contact</a></li>
+  </ul>
+  <a href="mailto:soroush.salari74@gmail.com" class="nav-btn">Hire Me</a>
+</nav>
+
+<!-- HERO -->
+<div id="hero">
+  <div class="bg-grid"></div>
+  <div class="bg-glow"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge fu"><span></span>Open to Opportunities</div>
+      <h1 class="name fu d1"><span class="grad">Soroush</span><br>Salari</h1>
+      <div class="role-line fu d2">AI Engineer · Data Scientist · Deep Learning Researcher</div>
+      <p class="hero-desc fu d3">MSc in Electrical Engineering from Isfahan University of Technology. Specialized in deep learning, medical image analysis, and intelligent diagnostic systems. Currently focused on medical AI and foundation models.</p>
+      <div class="cta-row fu d4">
+        <a href="#featured" class="btn-p">View Spotlight Project</a>
+        <a href="mailto:soroush.salari74@gmail.com" class="btn-o">Contact Me</a>
+      </div>
+      <div class="hero-stats fu d4">
+        <div><div class="stat-v">20+</div><div class="stat-l">Research<br>Projects</div></div>
+        <div><div class="stat-v">6</div><div class="stat-l">Publications<br>(incl. in prep)</div></div>
+        <div><div class="stat-v">5+</div><div class="stat-l">Years in<br>AI/ML</div></div>
+        <div><div class="stat-v">IUT</div><div class="stat-l">Top 10<br>University</div></div>
+      </div>
+    </div>
+    <div class="fu d2">
+      <div class="profile-card">
+        <div class="avatar"><img src="https://i.postimg.cc/4x6x5Y9t/httpsimgur-coma-Obhs9CQ.png" alt="Soroush Salari" id="profilePhoto" style="width:100%;height:100%;object-fit:cover;object-position:center top" onerror="this.style.display='none';this.parentNode.innerHTML='<span style=\'font-size:2.2rem\'>🧑‍💻</span>'"></div>
+        <div class="pc-name">Soroush Salari</div>
+        <div class="pc-role">AI Engineer & Data Scientist</div>
+        <div class="pc-div"></div>
+        <div class="pc-row"><div class="pc-icon">📧</div><div><div style="font-size:.63rem;color:var(--muted);margin-bottom:.1rem">Email</div><a href="mailto:soroush.salari74@gmail.com">soroush.salari74@gmail.com</a></div></div>
+        <div class="pc-row"><div class="pc-icon">🐙</div><div><div style="font-size:.63rem;color:var(--muted);margin-bottom:.1rem">GitHub</div><a href="https://github.com/Soroush-slr" target="_blank">github.com/Soroush-slr</a></div></div>
+        <div class="pc-row"><div class="pc-icon">💼</div><div><div style="font-size:.63rem;color:var(--muted);margin-bottom:.1rem">LinkedIn</div><a href="https://www.linkedin.com/in/soroush-salari-381518221/" target="_blank">soroush-salari-381518221</a></div></div>
+        <div class="pc-row"><div class="pc-icon">🎓</div><div><div style="font-size:.63rem;color:var(--muted);margin-bottom:.1rem">Google Scholar</div><a href="https://scholar.google.com/citations?user=qyNaVM4AAAAJ&hl=en" target="_blank">Soroush Salari</a></div></div>
+        <div class="pc-div" style="margin-top:.6rem"></div>
+        <div class="pill-row">
+          <span class="pill pill-p">Deep Learning</span><span class="pill pill-c">Medical AI</span><span class="pill pill-g">Data Science</span><span class="pill pill-p">Computer Vision</span><span class="pill pill-c">NLP</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sep"></div>
+
+<!-- FEATURED PROJECT: OSTEOARTHRITIS -->
+<div id="featured">
+<div class="feat-inner">
+  <div class="feat-header">
+    <div>
+      <div class="feat-badge reveal"><span></span>Spotlight Project</div>
+      <h2 class="feat-title reveal">AI System for Osteoarthritis Diagnosis</h2>
+      <div class="feat-meta reveal">🏥 California Rheumatology Clinic Dataset &nbsp;·&nbsp; 📅 January 2025 – April 2025 &nbsp;·&nbsp; 4 Classes: CONTROL · OA · RA · RA+OA</div>
+    </div>
+  </div>
+
+  <div class="feat-abstract reveal">
+    <strong>Abstract:</strong> Osteoarthritis (OA) is a degenerative joint disease that increasingly burdens aging populations. This study explores AI-enabled, image-based diagnostic approaches for hand OA by leveraging high-resolution hand and wrist images captured via smartphone technology. Using convolutional neural networks (CNNs) for image analysis alongside questionnaire data, we propose a <strong>multimodal framework</strong> that extracts and fuses features from visual and structured information to enhance diagnostic accuracy and enable earlier, personalized management of hand OA. The methodology encompasses image preprocessing, CNN architecture design, feature extraction, and several fusion strategies (early, late, <strong>Joint Probability Function</strong>) with attention mechanisms and ensemble learning. Findings on a multi-category dataset (4 classes) demonstrate the potential of AI-driven, accessible diagnostic tools to reduce time and resource demands compared with conventional practices.
+  </div>
+
+  <div class="feat-highlights reveal">
+    <div class="fh-card"><div class="fh-val">4</div><div class="fh-label">Disease Classes<br>(Control, OA, RA, RA+OA)</div></div>
+    <div class="fh-card"><div class="fh-val">2</div><div class="fh-label">Input Modalities<br>(Images + Questionnaire)</div></div>
+    <div class="fh-card"><div class="fh-val">3</div><div class="fh-label">Fusion Strategies<br>(Early, Late, JPF)</div></div>
+  </div>
+
+  <div class="section-tag reveal" style="margin-top:1rem">Project Figures</div>
+  <div class="figures-grid">
+    <div class="fig-card reveal">
+      <div class="fig-img">
+        <img id="fig1" src="https://i.postimg.cc/NMG236cV/Flow-Chart-4-class.jpg" alt="CNN + Neural Network Architecture" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="fig-placeholder" style="display:flex">
+          <span style="font-size:2rem">🏗️</span>
+          <span>Architecture Diagram</span>
+          <span style="font-size:.65rem;margin-top:.2rem;color:rgba(136,146,164,.5)">[add Figure 27 image]</span>
+        </div>
+      </div>
+      <div class="fig-caption">
+        <div class="fig-num">Figure 1 — Model Architecture</div>
+        <div class="fig-desc">CNN pipeline (image branch) + Neural Network (questionnaire branch) fused via Joint Probability Function for 4-class output.</div>
+      </div>
+    </div>
+    <div class="fig-card reveal">
+      <div class="fig-img">
+        <img id="fig2" src="https://i.postimg.cc/FKTHJwMY/sample.jpg" alt="Test Dataset Examples" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="fig-placeholder" style="display:flex">
+          <span style="font-size:2rem">🖼️</span>
+          <span>Prediction Examples</span>
+          <span style="font-size:.65rem;margin-top:.2rem;color:rgba(136,146,164,.5)">[add Figure 20 image]</span>
+        </div>
+      </div>
+      <div class="fig-caption">
+        <div class="fig-num">Figure 2 — Test Set Predictions</div>
+        <div class="fig-desc">Sample predictions on test dataset — Predicted vs. Actual labels across CONTROL, OA, RA, and RA+OA categories.</div>
+      </div>
+    </div>
+    <div class="fig-card reveal">
+      <div class="fig-img">
+        <img id="fig3" src="https://i.postimg.cc/mZjWZQGV/con-Matrix.jpg" alt="Confusion Matrix" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="fig-placeholder" style="display:flex">
+          <span style="font-size:2rem">📊</span>
+          <span>Confusion Matrix</span>
+          <span style="font-size:.65rem;margin-top:.2rem;color:rgba(136,146,164,.5)">[add confusion matrix image]</span>
+        </div>
+      </div>
+      <div class="fig-caption">
+        <div class="fig-num">Figure 3 — Confusion Matrix</div>
+        <div class="fig-desc">4-class confusion matrix: CONTROL (238/274), OA (368/394), RA (130/145), RA+OA (130/163) correct classifications.</div>
+      </div>
+    </div>
+  </div>
+  <div class="feat-tags reveal">
+    <span class="tag tg-p">CNN</span><span class="tag tg-p">U-Net</span><span class="tag tg-p">Multimodal</span><span class="tag tg-p">PyTorch</span><span class="tag tg-c">Questionnaire Fusion</span><span class="tag tg-c">JPF</span><span class="tag tg-pk">Medical AI</span><span class="tag tg-pk">Rheumatology</span><span class="tag tg-g">4-Class Classification</span>
+  </div>
+</div>
+</div>
+
+<div class="sep"></div>
+
+<!-- ABOUT -->
+<div id="about">
+<div class="wrap">
+  <div class="section-tag reveal">Background</div>
+  <h2 class="section-title reveal">Education & Honors</h2>
+  <div class="edu-grid">
+    <div class="edu-card reveal">
+      <div class="edu-badge">Master of Science</div>
+      <h3>Electrical Engineering — Telecommunications Systems</h3>
+      <div class="uni">Isfahan University of Technology (IUT)</div>
+      <div class="year">2018 – 2021 · Isfahan, Iran · Top 10 Nationally (U.S. News)</div>
+      <div style="font-size:.76rem;color:var(--muted);margin-top:.5rem">Thesis: Classification and Segmentation of Brain Tumor in MRI Using Deep Learning</div>
+      <div style="font-size:.73rem;color:var(--muted);margin-top:.3rem">Supervisor: Dr. Mohammad Reza Ahmadzadeh</div>
+    </div>
+    <div class="edu-card reveal">
+      <div class="edu-badge">Bachelor of Science</div>
+      <h3>Electrical Engineering — Electronic</h3>
+      <div class="uni">Hamadan University of Technology (HUT)</div>
+      <div class="year">2013 – 2018 · Hamedan, Iran</div>
+      <div style="font-size:.76rem;color:var(--muted);margin-top:.5rem">Thesis: Design, Simulation & Production of Low Pass Filter for FM Band by Microstrip Line</div>
+      <div style="font-size:.73rem;color:var(--muted);margin-top:.3rem">Supervisor: Dr. Ghasem Alipour</div>
+    </div>
+  </div>
+  <div class="honors-list">
+    <div class="honor-item reveal"><div class="honor-dot"></div><p><strong>Top 3%</strong> in Iran National University Entrance Exam (Konkour-e-Karshenasi-Arshad) among 30,000+ participants — 2018</p></div>
+    <div class="honor-item reveal"><div class="honor-dot"></div><p><strong>Full Scholarship</strong> (Tuition Waiver) from Isfahan University of Technology — 2018</p></div>
+    <div class="honor-item reveal"><div class="honor-dot"></div><p><strong>Top 2%</strong> in Iran National University Entrance Exam (Konkour-e-Karshenasi) among 250,000+ participants — 2013</p></div>
+    <div class="honor-item reveal"><div class="honor-dot"></div><p><strong>Full Scholarship</strong> (Tuition Waiver) from Hamadan University of Technology — 2013</p></div>
+  </div>
+</div>
+</div>
+
+<div class="sep"></div>
+
+<!-- SKILLS -->
+<div id="skills" class="skills-wrap">
+<div class="wrap">
+  <div class="section-tag reveal">Technical Expertise</div>
+  <h2 class="section-title reveal">Skills & Tools</h2>
+  <div class="skills-grid">
+    <div class="sk-card reveal"><div class="sk-icon">🧠</div><h3>Deep Learning</h3><p>CNN, LSTM, Transformers, U-Net variants for segmentation and classification in medical imaging.</p><div class="tags"><span class="tag tg-p">PyTorch</span><span class="tag tg-p">TensorFlow</span><span class="tag tg-p">Keras</span><span class="tag tg-p">HuggingFace</span></div></div>
+    <div class="sk-card reveal"><div class="sk-icon">🤖</div><h3>Machine Learning</h3><p>Ensemble methods, feature engineering, SVM, XGBoost, Random Forest with hyperparameter optimization.</p><div class="tags"><span class="tag tg-c">XGBoost</span><span class="tag tg-c">Scikit-learn</span><span class="tag tg-c">SVM</span><span class="tag tg-c">Random Forest</span></div></div>
+    <div class="sk-card reveal"><div class="sk-icon">🏥</div><h3>Medical Image Analysis</h3><p>Brain tumor detection, breast cancer segmentation, osteoarthritis and retinal disease diagnosis.</p><div class="tags"><span class="tag tg-pk">U-Net</span><span class="tag tg-pk">MRI</span><span class="tag tg-pk">Thermography</span><span class="tag tg-pk">Fundus</span></div></div>
+    <div class="sk-card reveal"><div class="sk-icon">💬</div><h3>NLP & Text Mining</h3><p>BERT, CT-BERT fine-tuning, topic modeling (LDA/LSA), sentiment analysis, fake news detection.</p><div class="tags"><span class="tag tg-g">BERT</span><span class="tag tg-g">BiGRU</span><span class="tag tg-g">LDA</span><span class="tag tg-g">LSA</span></div></div>
+    <div class="sk-card reveal"><div class="sk-icon">💻</div><h3>Programming</h3><p>Python (primary), MATLAB for signal & image processing, C++ for embedded & edge AI systems.</p><div class="tags"><span class="tag tg-p">Python</span><span class="tag tg-p">MATLAB</span><span class="tag tg-p">C++</span></div></div>
+    <div class="sk-card reveal"><div class="sk-icon">☁️</div><h3>MLOps & Cloud</h3><p>Cloud-based ML infrastructure, SageMaker pipelines, workflow automation with n8n.</p><div class="tags"><span class="tag tg-c">AWS</span><span class="tag tg-c">SageMaker</span><span class="tag tg-c">n8n</span><span class="tag tg-c">Google Colab</span></div></div>
+  </div>
+</div>
+</div>
+
+<div class="sep"></div>
+
+<!-- PROJECTS -->
+<div id="projects">
+<div class="wrap">
+  <div class="section-tag reveal">Portfolio</div>
+  <h2 class="section-title reveal">Research & Projects</h2>
+  <p class="section-desc reveal">20+ projects across deep learning, machine learning, data analysis and data mining.</p>
+  <div class="filter-bar reveal">
+    <button class="filter-btn active" onclick="filterProj('all',this)">🔬 All</button>
+    <button class="filter-btn" onclick="filterProj('dl',this)">🧠 Deep Learning</button>
+    <button class="filter-btn" onclick="filterProj('ml',this)">🤖 Machine Learning</button>
+    <button class="filter-btn" onclick="filterProj('da',this)">📊 Data Analysis</button>
+    <button class="filter-btn" onclick="filterProj('dm',this)">⛏️ Data Mining</button>
+  </div>
+  <div class="proj-grid" id="projGrid">
+    <div class="proj-card" data-cat="dl"><div class="proj-thumb" style="background:linear-gradient(135deg,rgba(124,92,252,.15),rgba(0,212,255,.08))"><span style="font-size:2.8rem;z-index:1">🧬</span></div><div class="proj-body"><span class="proj-cat-badge cat-dl">Deep Learning</span><h3>Brain Tumor Segmentation & Classification (Master's Thesis)</h3><p>Developed Ψm-Nɇt, ReU-Net, and ImU-Net for simultaneous brain tumor segmentation and classification in MRI images on figshare dataset.</p><div class="proj-footer"><div class="tags"><span class="tag tg-p">U-Net</span><span class="tag tg-p">CNN</span><span class="tag tg-p">MRI</span></div></div></div></div>
+    <div class="proj-card" data-cat="dl"><div class="proj-thumb" style="background:linear-gradient(135deg,rgba(124,92,252,.12),rgba(255,77,141,.1))"><span style="font-size:2.8rem;z-index:1">🦴</span></div><div class="proj-body"><span class="proj-cat-badge cat-dl">Deep Learning</span><h3>AI System for Osteoarthritis Diagnosis</h3><p>Multimodal CNN + Neural Network for 7-category OA diagnosis using patient photos and questionnaires from a California rheumatology clinic.</p><div class="proj-footer"><div class="tags"><span class="tag tg-p">CNN</span><span class="tag tg-p">Multimodal</span><span class="tag tg-pk">Medical AI</span></div><a href="#featured" style="font-size:.72rem;color:var(--cyan);text-decoration:none;font-weight:600">↑ See Spotlight</a></div></div></div>
+    <div class="proj-card" data-cat="dl"><div class="proj-thumb" style="background:linear-gradient(135deg,rgba(0,212,255,.1),rgba(124,92,252,.1))"><span style="font-size:2.8rem;z-index:1">🎗️</span></div><div class="proj-body"><span class="proj-cat-badge cat-dl">Deep Learning</span><h3>Breast Cancer Segmentation & Classification</h3><p>U-Net ROI segmentation + Wavelet/Curvelet + Firefly Algorithm + PCA. SVM & ELM classifiers. Datasets: MIAS, INbreast, Thermography.</p><div class="proj-footer"><div class="tags"><span class="tag tg-p">U-Net</span><span class="tag tg-pk">SVM</span><span class="tag tg-pk">Wavelet</span></div></div></div></div>
+    <div class="proj-card" data-cat="dl"><div class="proj-thumb" style="background:linear-gradient(135deg,rgba(255,77,141,.1),rgba(124,92,252,.12))"><span style="font-size:2.8rem;z-index:1">🦠</span></div><div class="proj-body"><span class="proj-cat-badge cat-dl">Deep Learning</span><h3>ADHD Automatic Diagnosis</h3><p>Automated ADHD detection using CNN, LSTM, and MLP architectures for fMRI data classification. Dataset: Nilearn ADHD.</p><div class="proj-footer"><div class="tags"><span class="tag tg-p">CNN</span><span class="tag tg-p">LSTM</span><span class="tag tg-p">MLP</span></div></div></div></div>
+    <div class="proj-card" data-cat="dl"><div class="proj-thumb" style="background:linear-gradient(135deg,rgba(0,212,138,.08),rgba(0,212,255,.1))"><span style="font-size:2.8rem;z-index:1">🔍</span></div><div class="proj-body"><span class="proj-cat-badge cat-dl">Deep Learning</span><h3>Industrial Defect Inspection (U-Net)</h3><p>Improved U-Net for simultaneous defect segmentation and classification on production line data. Dataset: DAGM 2007.</p><div class="proj-footer"><div class="tags"><span class="tag tg-p">U-Net</span><span class="tag tg-c">Segmentation</span></div></div></div></div>
+    <div class="proj-card" data-cat="dl"><div class="proj-thumb" style="background:linear-gradient(135deg,rgba(124,92,252,.1),rgba(0,212,138,.08))"><span style="font-size:2.8rem;z-index:1">🏃</span></div><div class="proj-body"><span class="proj-cat-badge cat-dl">Deep Learning</span><h3>Human Action Recognition</h3><p>LSTM + self-attention for 9-category motion recognition. Improved efficiency and accuracy over baseline.</p><div class="proj-footer"><div class="tags"><span class="tag tg-p">LSTM</span><span class="tag tg-p">Attention</span></div></div></div></div>
+    <div class="proj-card" data-cat="dl"><div class="proj-thumb" style="background:linear-gradient(135deg,rgba(0,212,255,.08),rgba(124,92,252,.12))"><span style="font-size:2.8rem;z-index:1">🖼️</span></div><div class="proj-body"><span class="proj-cat-badge cat-dl">Deep Learning</span><h3>Image Deblurring with Deep U-Net</h3><p>Removing Gaussian blur and noise from images via improved U-Net. Trained on CIFAR-10.</p><div class="proj-footer"><div class="tags"><span class="tag tg-p">U-Net</span><span class="tag tg-c">CIFAR-10</span></div></div></div></div>
+    <div class="proj-card" data-cat="dl"><div class="proj-thumb" style="background:linear-gradient(135deg,rgba(255,77,141,.08),rgba(0,212,255,.08))"><span style="font-size:2.8rem;z-index:1">🚗</span></div><div class="proj-body"><span class="proj-cat-badge cat-dl">Deep Learning</span><h3>Blind Spot Detection System</h3><p>BSD using ultrasonic sensors + TI Deep Learning Library (TIDL) for CNN inference on TI devices. Simulated with CARLA.</p><div class="proj-footer"><div class="tags"><span class="tag tg-p">CNN</span><span class="tag tg-c">Edge AI</span><span class="tag tg-c">CARLA</span></div></div></div></div>
+    <div class="proj-card" data-cat="dl"><div class="proj-thumb" style="background:linear-gradient(135deg,rgba(124,92,252,.12),rgba(0,212,138,.08))"><span style="font-size:2.8rem;z-index:1">🧪</span></div><div class="proj-body"><span class="proj-cat-badge cat-dl">Deep Learning</span><h3>Skin Cancer Classification (EfficientNet)</h3><p>EfficientNet + data augmentation for skin cancer classification on Skin Cancer benchmark dataset.</p><div class="proj-footer"><div class="tags"><span class="tag tg-p">EfficientNet</span><span class="tag tg-pk">Augmentation</span></div></div></div></div>
+    <!-- ML -->
+    <div class="proj-card" data-cat="ml"><div class="proj-thumb" style="background:linear-gradient(135deg,rgba(0,212,255,.12),rgba(0,212,138,.08))"><span style="font-size:2.8rem;z-index:1">🫁</span></div><div class="proj-body"><span class="proj-cat-badge cat-ml">Machine Learning</span><h3>COVID-19 ICU Admission Prediction</h3><p>Predictive model for ICU admission using RandomForest, KNN, Logistic Regression, XGBoost, SVM on COVID-19 Clinical Data.</p><div class="proj-footer"><div class="tags"><span class="tag tg-c">XGBoost</span><span class="tag tg-c">RandomForest</span><span class="tag tg-c">SVM</span></div></div></div></div>
+    <div class="proj-card" data-cat="ml"><div class="proj-thumb" style="background:linear-gradient(135deg,rgba(0,212,138,.1),rgba(0,212,255,.08))"><span style="font-size:2.8rem;z-index:1">❤️</span></div><div class="proj-body"><span class="proj-cat-badge cat-ml">Machine Learning</span><h3>Heart Attack Risk Prediction</h3><p>Binary classification of heart attack risk using Random Forest and Logistic Regression. Kaggle Heart Attack dataset.</p><div class="proj-footer"><div class="tags"><span class="tag tg-c">RandomForest</span><span class="tag tg-g">Logistic Reg.</span></div></div></div></div>
+    <div class="proj-card" data-cat="ml"><div class="proj-thumb" style="background:linear-gradient(135deg,rgba(0,212,255,.1),rgba(124,92,252,.08))"><span style="font-size:2.8rem;z-index:1">💧</span></div><div class="proj-body"><span class="proj-cat-badge cat-ml">Machine Learning</span><h3>Water Quality Classification</h3><p>Water potability classification using XGBoost, K-Means, AdaBoost, Random Forest, and Logistic Regression.</p><div class="proj-footer"><div class="tags"><span class="tag tg-c">XGBoost</span><span class="tag tg-c">K-Means</span><span class="tag tg-c">AdaBoost</span></div></div></div></div>
+    <!-- DA -->
+    <div class="proj-card" data-cat="da"><div class="proj-thumb" style="background:linear-gradient(135deg,rgba(0,212,138,.1),rgba(0,212,255,.08))"><span style="font-size:2.8rem;z-index:1">📰</span></div><div class="proj-body"><span class="proj-cat-badge cat-da">Data Analysis</span><h3>Fake News Detection (COVID-19)</h3><p>BERT, BERT-BiGRU, and CT-BERT for fake news detection using feature extraction and fine-tuning. COVID19 Fake News dataset.</p><div class="proj-footer"><div class="tags"><span class="tag tg-g">BERT</span><span class="tag tg-g">BiGRU</span><span class="tag tg-g">CT-BERT</span></div></div></div></div>
+    <div class="proj-card" data-cat="da"><div class="proj-thumb" style="background:linear-gradient(135deg,rgba(0,212,138,.08),rgba(124,92,252,.08))"><span style="font-size:2.8rem;z-index:1">💬</span></div><div class="proj-body"><span class="proj-cat-badge cat-da">Data Analysis</span><h3>Persian Sentiment Analysis</h3><p>Text cleaning, preprocessing and classification using CNN + Logistic Regression on Persian text. Dataset: SentiPers.</p><div class="proj-footer"><div class="tags"><span class="tag tg-g">CNN</span><span class="tag tg-g">NLP</span><span class="tag tg-g">Persian</span></div></div></div></div>
+    <!-- DM -->
+    <div class="proj-card" data-cat="dm"><div class="proj-thumb" style="background:linear-gradient(135deg,rgba(255,77,141,.1),rgba(0,212,138,.08))"><span style="font-size:2.8rem;z-index:1">📁</span></div><div class="proj-body"><span class="proj-cat-badge cat-dm">Data Mining</span><h3>Newsgroup Text Classification</h3><p>LSA + LDA combined with Logistic Regression, Naive Bayes, and logistic LDA for topic-based text classification. 20 Newsgroups.</p><div class="proj-footer"><div class="tags"><span class="tag tg-pk">LSA</span><span class="tag tg-pk">LDA</span><span class="tag tg-pk">Naive Bayes</span></div></div></div></div>
+    <div class="proj-card" data-cat="dm"><div class="proj-thumb" style="background:linear-gradient(135deg,rgba(255,77,141,.08),rgba(0,212,255,.08))"><span style="font-size:2.8rem;z-index:1">🧠</span></div><div class="proj-body"><span class="proj-cat-badge cat-dm">Data Mining</span><h3>Brain Tumor Classification with Wavelet</h3><p>Wavelet Transform preprocessing + feature extraction followed by CNN classification. Dataset: figshare brain MRI.</p><div class="proj-footer"><div class="tags"><span class="tag tg-pk">Wavelet</span><span class="tag tg-pk">CNN</span><span class="tag tg-pk">MRI</span></div></div></div></div>
+  </div>
+</div>
+</div>
+
+<div class="sep"></div>
+
+<!-- PUBLICATIONS -->
+<div id="publications">
+<div class="wrap">
+  <div class="section-tag reveal">Research Output</div>
+  <h2 class="section-title reveal">Publications</h2>
+  <p class="section-desc reveal">Peer-reviewed publications and manuscripts in preparation in medical AI and deep learning.</p>
+  <div class="pub-list">
+    <div class="pub-card reveal">
+      <div class="pub-num">01</div>
+      <div>
+        <div class="pub-title">Explainable Artificial Intelligence in Nuclear Medicine: Advancing Transparency in PET and SPECT Imaging and Radiation Therapy <span class="pub-status status-pub">Published</span></div>
+        <div class="pub-authors">H. Arabi, M. Noroozi, H. Aghapanah, S. Jamaati, A. Saeeidi Rad, <strong>S. Salari</strong>, J. Majidpour, et al.</div>
+        <div class="pub-venue">Frontiers in Biomedical Technologies · Vol. 13, No. 1, pp. 232–254 · Jan. 2026</div>
+      </div>
+    </div>
+    <div class="pub-card reveal">
+      <div class="pub-num">02</div>
+      <div>
+        <div class="pub-title">Utilizing VGG16 U-Net Architecture for Lesion Detection in FLAIR Images of Multiple Sclerosis Patients <span class="pub-status status-submit">In Prep</span></div>
+        <div class="pub-authors"><strong>S. Salari</strong>, et al.</div>
+        <div class="pub-venue">Manuscript in preparation · 2025 (last 4 months)</div>
+      </div>
+    </div>
+    <div class="pub-card reveal">
+      <div class="pub-num">03</div>
+      <div>
+        <div class="pub-title">Semi-supervised Retinal Foundation Learning for Multi-class Classification of Optic Disc Neuropathies in Fundus Photographs <span class="pub-status status-submit">In Prep</span></div>
+        <div class="pub-authors"><strong>S. Salari</strong>, et al.</div>
+        <div class="pub-venue">Manuscript in preparation · 2025 (last 4 months)</div>
+      </div>
+    </div>
+    <div class="pub-card reveal">
+      <div class="pub-num">04</div>
+      <div>
+        <div class="pub-title">Diagnosis Hallucination in Whole-Slide Pathology Report Generation: A Failure of Generation Stopping Rather Than Diagnostic Recognition <span class="pub-status status-submit">In Prep</span></div>
+        <div class="pub-authors"><strong>S. Salari</strong>, et al.</div>
+        <div class="pub-venue">Manuscript in preparation · 2025 (last 4 months)</div>
+      </div>
+    </div>
+    <div class="pub-card reveal">
+      <div class="pub-num">05</div>
+      <div>
+        <div class="pub-title">Segmentation and Classification of Brain Tumor in MRI Using Ψm-Nɇt Network <span class="pub-status status-prep">Ready to Submit</span></div>
+        <div class="pub-authors"><strong>S. Salari</strong>, MR. Ahmadzadeh</div>
+        <div class="pub-venue">Manuscript in preparation</div>
+      </div>
+    </div>
+    <div class="pub-card reveal">
+      <div class="pub-num">06</div>
+      <div>
+        <div class="pub-title">Improvement of U-Net for Brain Tumor Segmentation <span class="pub-status status-prep">In Prep</span></div>
+        <div class="pub-authors"><strong>S. Salari</strong>, MR. Ahmadzadeh</div>
+        <div class="pub-venue">Manuscript in preparation</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="sep"></div>
+
+<!-- TEACHING -->
+<div id="teaching" style="background:var(--bg2)">
+<div class="wrap">
+  <div class="section-tag reveal">Experience</div>
+  <h2 class="section-title reveal">Teaching & Mentorship</h2>
+  <div class="teach-grid">
+    <div class="teach-card reveal"><div class="teach-icon">🎓</div><h3>Deep Learning Instructor</h3><p>Teaching deep learning with focus on convolutional neural networks in private sector.</p><div class="teach-date">March 2022 – April 2023</div></div>
+    <div class="teach-card reveal"><div class="teach-icon">💡</div><h3>AI Thesis & Project Consultant</h3><p>Consulting on AI theses and projects for students and researchers across multiple domains.</p><div class="teach-date">October 2021 – July 2023</div></div>
+    <div class="teach-card reveal"><div class="teach-icon">🏫</div><h3>Teaching Assistant — Pattern Recognition</h3><p>Graduate course TA under Dr. M. Ahmadzadeh at Isfahan University of Technology.</p><div class="teach-date">Spring 2019 · IUT</div></div>
+  </div>
+</div>
+</div>
+
+<div class="sep"></div>
+
+<!-- CONTACT -->
+<div id="contact-section">
+<div class="wrap" style="text-align:center;padding-top:5rem;padding-bottom:5rem">
+  <div class="section-tag reveal" style="text-align:center">Get in Touch</div>
+  <div class="contact-box reveal">
+    <h2>Let's work <span style="color:var(--cyan)">together</span></h2>
+    <p>Looking for an AI engineer for your project? Want to collaborate on medical AI research? I'm open to freelance projects, research collaborations, and full-time opportunities.</p>
+    <div class="contact-links">
+      <a href="mailto:soroush.salari74@gmail.com" class="c-link"><span class="c-icon">📧</span><span class="c-text"><span class="c-label">Email</span><span class="c-val">soroush.salari74@gmail.com</span></span></a>
+      <a href="https://github.com/Soroush-slr" target="_blank" class="c-link"><span class="c-icon">🐙</span><span class="c-text"><span class="c-label">GitHub</span><span class="c-val">github.com/Soroush-slr</span></span></a>
+      <a href="https://www.linkedin.com/in/soroush-salari-381518221/" target="_blank" class="c-link"><span class="c-icon">💼</span><span class="c-text"><span class="c-label">LinkedIn</span><span class="c-val">soroush-salari-381518221</span></span></a>
+      <a href="https://scholar.google.com/citations?user=qyNaVM4AAAAJ&hl=en" target="_blank" class="c-link"><span class="c-icon">🎓</span><span class="c-text"><span class="c-label">Google Scholar</span><span class="c-val">Soroush Salari</span></span></a>
+    </div>
+    <a href="tel:+989399527962" class="btn-p" style="display:inline-block">📞 +98 939 952 7962</a>
+  </div>
+</div>
+</div>
+
+<footer><p>© 2026 Soroush Salari · AI Engineer & Data Scientist · Isfahan, Iran</p></footer>
+
+<script>
+function filterProj(cat,btn){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'))
+  btn.classList.add('active')
+  document.querySelectorAll('.proj-card').forEach(c=>{
+    if(cat==='all'||c.dataset.cat===cat)c.classList.remove('hidden')
+    else c.classList.add('hidden')
+  })
+}
+const obs=new IntersectionObserver(els=>{els.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:.08,rootMargin:'0px 0px -30px 0px'})
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el))
+</script>
+</body>
+</html>
